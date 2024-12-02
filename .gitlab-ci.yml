@@ -1,0 +1,17 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  POSTGRES_USER: django_user
+  POSTGRES_PASSWORD: django_pass
+  POSTGRES_DB: records
+
+build:
+  stage: build
+  image: docker:20.10.7
+  services:
+    - docker:20.10.7-dind
+  script:
+    - docker build
